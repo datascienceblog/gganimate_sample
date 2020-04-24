@@ -1,0 +1,55 @@
+---
+title: "How to create plots using gganimate"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduction.
+
+The most important thing about visualization is when it forces us to realize something we didn’t know. Visually appealing charts easily draw our attention. Animating data is like breathing life into dust, it’s an act of creation. How do you create appealing animations that are insightful?
+In this article, we are going to learn how to create beautiful animations using R package, gganimate.
+
+
+# Data.
+
+The Suicide Rate data is obtained from [Kaggle](https://www.kaggle.com/russellyates88/suicide-rates-overview-1985-to-2016) after being compiled from different sources (WHO, UNDP, World Bank). The data compares socio-economic info with suicide rates per country from 1985 to 2016. The inspiration was to come up with suicide preventing strategies across the various countries.
+
+# Data Wrangling.
+
+# Building static plots.
+
+# Animation.
+
+## What are the key features of gganimate?
+
+1. transition_ *: this function defines how data should be spread and how it relates to itself over time.
+a. transition_reveal: this allows you to let the data gradually disappear.
+b. transition_time: the transition length between the states is set to correspond to the actual time difference between them.
+c. transition_state: this is used to animate the plots by categorical or discrete variables.
+2. view_ *: It is used to define how the axes should change along with the animation.
+a. view_follow(fixed_y=TRUE): This means that the y_axis would be fixed when the animation is running.
+b. view_follow(fixed_x=TRUE) : the x-axis would be fixed as the animation runs.
+3. ease_aes(): it describes how the different aesthetics should be eased during animation.
+a. ease_aes(“cubic-in-out”)
+b. ease_aes(“sine-in-out”)
+4. enter_*/exit_ *: it is used to determine how new data should be appearing and old data disappearing during the animation process.
+a. enter_fade/exit_shrink
+5. State_length: this refers to the relative length of pause of the states.
+6. transition_length: this is the relative length of the animation.
+7. Rendering
+8. Duration This is the total time taken by the frames to animate i.e. duration=30
+9. Layout.
+We can change the height and width of our plot by specifying the size
+We save the animation output to an object called final_animation.
+10. Saving animation.
+To save our animation we are going to use the function anim_save() with the parameters:
+* **Animation** - this is the final output of our animation plot.
+* **Path** - where we want our animation to be saved.
+
+
+# Conclusion.
+
+We have been able to animate the suicide rates per country using R gganimate package. You can tweak the code to effectively animate any set of dataset and incorporate in your own presentations, blogs or website. 
